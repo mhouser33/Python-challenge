@@ -1,1 +1,50 @@
+import os
+import csv
+
+# Lists to store data
+months = 0
+net_total = 0
+net_list = []
+greatest_increase = ['',0]
+greatest_decrease = ['',90000000000000000000]
+date_list = []
+
+budget_csv = os.path.join("..", "Downloads", "Python_Homework.csv")
+
+# Open and read csv
+with open(budget_csv, newline="") as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=",")
+
+ # Read the header row first (skip this part if there is no header)
+    csvfile = next(csvreader)
+    first_row = next(csvreader)
+    net_total = int(first_row[1]) + net_total 
+    previous_row = int(first_row[1])
+    months += 1
+    # Read through each row of data after the header
+    for row in csvreader:
+        months += 1
+        net_total = net_total + int(row[1])
+        net_change = int(row[1])-previous_row
+        previous_row = int(row[1])
+        net_list.append(net_change)
+        date_list.append(row[0])
+
+        if net_change > greatest_increase [1]:
+            greatest_increase[0] = row[0]
+            greatest_increase[1] = net_change
+
+        if net_change < greatest_decrease [1]:
+            greatest_decrease[0] = row[0] 
+            greatest_decrease[1] = net_change   
+average = sum(net_list) / len(net_list)
+
+print('Financial Analysis')
+print('---------------------------')
+
+print(months)
+print(net_total)
+print(average)
+print(greatest_increase)
+print(greatest_decrease)
 
