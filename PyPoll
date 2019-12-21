@@ -12,13 +12,25 @@ with open(budget_csv, newline="") as csvfile:
     for row in csvreader:
         print(row)
 
+def average(numbers):
+    length = len(numbers)
+    total = 0.0
+    for number in numbers:
+        total += number
+    return total / length
+
+
+# Test your function with the following:
+print(average([1, 5, 9]))
+print(average(range(11)))
+
 # Define the funtion and have it accept the "poll data" as its sole parameter
 def candidate_votes(poll_data):
     khan_votes = int(poll_data[0])
     correy_votes = int(poll_data[0])
     li_votes = int(poll_data[0])
     otooley_votes = int(poll_data[0])
-    winner = str([2]) 
+    winner = str(max([1])) 
 
 # Read the header row first (skip this part if there is no header)
     csvfile = next(csvreader)
@@ -36,7 +48,14 @@ def candidate_votes(poll_data):
         net_list.append(net_change)
         date_list.append(row[0])
        
-    print(vote_total)
+print('Election Results')
+print('------------------------')  
+print(vote_total)
+print(khan_votes)
+print(correy_votes)
+print(li_votes)
+print(otooley_votes)
+print(winner)
 
 
 
