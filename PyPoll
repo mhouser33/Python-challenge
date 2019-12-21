@@ -8,11 +8,13 @@ date_list = []
 
 budget_csv = os.path.join("..", "Downloads", "03-Python_Homework_2.csv")
 with open(budget_csv, newline="") as csvfile:
-    csvreader = csv.reader(csvfile, delimiter=",")
+    csvreader = csv.DictReader(csvfile, delimiter=",")
+    for row in csvreader:
+        print(row)
 
 # Define the funtion and have it accept the "poll data" as its sole parameter
 def candidate_votes(poll_data):
-    kahn_votes = int(poll_data[0])
+    khan_votes = int(poll_data[0])
     correy_votes = int(poll_data[0])
     li_votes = int(poll_data[0])
     otooley_votes = int(poll_data[0])
@@ -24,6 +26,7 @@ def candidate_votes(poll_data):
     vote_total = int(first_row[0]) + vote_total 
     previous_row = int(first_row[0])
     voterID += 1
+    
 # Read through each row of data after the header
     for row in csvreader:
         voterID += 1
@@ -33,10 +36,11 @@ def candidate_votes(poll_data):
         net_list.append(net_change)
         date_list.append(row[0])
        
-        if kahn_votes > 
-
-
     print(vote_total)
+
+
+
+  
 
 
 
